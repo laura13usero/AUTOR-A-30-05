@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Películas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="css/main.css"> <link rel="stylesheet" href="css/peliculas.css"> </head> -->
+<body>
+<div class="container">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Listado de Películas</h2>
+
+    <div class="search-section">
+        <input type="text" id="movieSearchInput" class="form-input" placeholder="Buscar película por título..." list="movieSuggestions">
+        <datalist id="movieSuggestions"></datalist>
+        <button id="searchButton" class="form-button">Buscar</button>
+    </div>
+
+    <div class="filter-section">
+        <select id="genreFilter" class="form-select">
+            <option value="TODOS">Todos los Géneros</option>
+        </select>
+        <button id="filterButton" class="form-button">Filtrar por Género</button>
+    </div>
+
+    <div id="moviesList" class="movies-grid">
+    </div>
+
+    <div id="message" class="message-box hidden"></div>
+</div>
+
+<div id="commentsModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h3 id="modalMovieTitle" class="text-xl font-bold mb-4 text-gray-800"></h3>
+        <p class="text-gray-600 mb-4">ID de Película: <span id="modalMovieId"></span></p>
+
+        <div id="commentsSection">
+            <h4 class="text-lg font-semibold mb-2">Comentarios</h4>
+            <div id="commentsList" class="max-h-60 overflow-y-auto border p-2 rounded mb-4 bg-gray-50">
+            </div>
+            <div id="noCommentsMessage" class="text-gray-500 hidden">Sé el primero en comentar esta película.</div>
+        </div>
+
+        <div id="addCommentSection" class="mt-4">
+            <h4 class="text-lg font-semibold mb-2">Añadir un comentario</h4>
+            <textarea id="commentText" class="textarea-input mb-2" placeholder="Escribe tu comentario aquí..." rows="3"></textarea>
+            <button id="submitCommentButton" class="form-button">Publicar Comentario</button>
+            <div id="commentMessage" class="message-box hidden mt-2"></div>
+        </div>
+        <div id="loginPrompt" class="message-box error mt-4 hidden">
+            Debes iniciar sesión para añadir comentarios. <a href="/TestControllerPostgre/login.html" class="text-blue-600 underline">Ir al Login</a>
+        </div>
+    </div>
+</div>
+
+<script src="js/peliculas.js"></script> </body>
+</html>
